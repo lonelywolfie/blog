@@ -5,6 +5,8 @@ const controllers = require('../../controllers/backend/admin.controller');
 
 router.get('/',controllers.admin);
 
+router.get('/profile',controllers.profile);
+
 
 
 

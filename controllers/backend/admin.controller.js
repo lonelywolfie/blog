@@ -30,4 +30,15 @@ module.exports.logout = (req,res) =>{
 	res.clearCookie('user');
 	res.redirect('/login');
 	
+};
+
+module.exports.profile = async (req,res) => {
+	let userId = req.signedCookies.user;
+	let user = await User.findById(userId);
+		
+	res.render('backend/profile',{
+		user : user
+	});	
+
+
 }
