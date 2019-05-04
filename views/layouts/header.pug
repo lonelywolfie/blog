@@ -1,0 +1,68 @@
+
+#header
+  h1(style='color: red;')
+    a(href='') Matrix Admin
+
+
+#user-nav.navbar.navbar-inverse
+  ul.nav
+    li#profile-messages.dropdown
+      a.dropdown-toggle(title='', href='#', data-toggle='dropdown', data-target='#profile-messages')
+        i.icon.icon-user
+        span.text Hello, #{user.name}
+        b.caret
+      ul.dropdown-menu
+        li
+          a(href='#')
+            i.icon-user
+            |  My Profile
+        li.divider
+        li
+          a(href='#')
+            i.icon-check
+            |  My Tasks
+        li.divider
+        li
+          a(href='')
+            i.icon-key
+            |  Log Out
+    li#menu-messages.dropdown
+      a.dropdown-toggle(href='#', data-toggle='dropdown', data-target='#menu-messages')
+        i.icon.icon-envelope
+        span.text Messages
+        span.label.label-important 5
+        b.caret
+      ul.dropdown-menu
+        li
+          a.sAdd(title='', href='#')
+            i.icon-plus
+            |  new message
+        li.divider
+        li
+          a.sInbox(title='', href='#')
+            i.icon-envelope
+            |  inbox
+        li.divider
+        li
+          a.sOutbox(title='', href='#')
+            i.icon-arrow-up
+            |  outbox
+        li.divider
+        li
+          a.sTrash(title='', href='#')
+            i.icon-trash
+            |  trash
+    li
+      a(title='', href='')
+        i.icon.icon-cog
+        span.text Settings
+    li
+      a(title='', href='/logout')
+        i.icon.icon-share-alt
+        span.text Logout
+
+#search
+  input(type='text', placeholder='Search here...')
+  button.tip-bottom(type='submit', title='Search')
+    i.icon-search.icon-white
+

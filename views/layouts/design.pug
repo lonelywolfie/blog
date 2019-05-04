@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title Matrix Admin
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1.0')
+    
+    link(rel='stylesheet', href='/backend/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/backend/css/bootstrap-responsive.min.css')
+    link(rel='stylesheet', href='/backend/css/fullcalendar.css')
+    link(rel='stylesheet', href='/backend/css/uniform1.css')
+    link(rel='stylesheet', href='/backend/css/select2.css')
+    link(rel='stylesheet', href='/backend/css/matrix-style.css')
+    link(rel='stylesheet', href='/backend/css/matrix-media.css')
+    link(href='/fonts/backend/css/font-awesome.css', rel='stylesheet')
+    link(rel='stylesheet', href='/backend/css/jquery.gritter.css')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800', rel='stylesheet', type='text/css')
+    script(type='text/javascript', src='/backend/ckeditor/ckeditor.js')
+  body
+    include ./header
+    include ./sidebar
+    block content
+    
+    include ./footer
+
+    
+    script(src='/backend/js/jquery.min.js')
+    script(src='/backend/js/jquery.ui.custom.js')
+    script(src='/backend/js/bootstrap.min.js')
+    script(src='/backend/js/jquery.uniform.js')
+    script(src='/backend/js/select2.min.js')
+    script(src='/backend/js/jquery.dataTables.min.js')
+    script(src='/backend/js/jquery.validate.js')
+    script(src='/backend/js/matrix.js')
+    script(src='/backend/js/matrix.form_validation.js')
+    script(src='/backend/js/matrix.tables.js')
+    script(src='/backend/js/matrix.popover.js')
+    
