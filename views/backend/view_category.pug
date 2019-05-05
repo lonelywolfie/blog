@@ -1,0 +1,34 @@
+extends ../layouts/design
+block content
+ #content
+  #content-header
+    #breadcrumb
+      a.tip-bottom(href='#', title='Go to Home')
+        i.icon-home
+        |  Home
+      a.current(href='#') Tables
+    h1 Tables
+  .container-fluid
+    hr
+    .row-fluid
+      .span12
+        .widget-box
+          .widget-title
+            span.icon
+              i.icon-th
+            h5 Data table
+          .widget-content.nopadding.justify-content-center
+            table.table.table-bordered.data-table
+              thead
+                tr
+                  th STT
+                  th Category Name
+                  th Action
+              tbody
+               - var stt = 1
+               each category in categories
+                tr.gradeX
+                 td= stt++
+                 td= category.name
+                 td.center
+                  a#del.btn.btn-danger.btn-mini(href='/admin/delete-category/'+category._id) Delete

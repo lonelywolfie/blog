@@ -26,8 +26,14 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 //config data base
-mongoose.connect('mongodb://localhost/example',{useNewUrlParser: true});
-
+mongoose.connect('mongodb://localhost/example',{
+	useNewUrlParser: true,
+	useFindAndModify: false});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('connected')
+});
 //config view engine
 
 app.set('views', './views');

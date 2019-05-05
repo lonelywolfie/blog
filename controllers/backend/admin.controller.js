@@ -1,5 +1,5 @@
 const User = require('../../model/backend/userModel')
-
+const Category = require('../../model/backend/categoryModel');
 module.exports.admin = (req,res) => {
 	res.render('backend/admin');
 };
@@ -39,6 +39,38 @@ module.exports.profile = async (req,res) => {
 	res.render('backend/profile',{
 		user : user
 	});	
+};
 
+module.exports.viewAddForm = (req,res)=>{
+	res.render('backend/add-category')
+};
 
-}
+module.exports.add_category = (req,res)=> {
+	let name = req.body.name;
+	let category = new Category({
+		name : name,
+		books : []
+	});
+	category.save().then((data)=>{
+		console.log(data)
+	}).catch((err)=>{
+		console.log(err.message)
+	});
+	res.redirect('back');
+} ;
+
+module.exports.view_category = async (req,res) =>{
+	let categories = await Category.find();
+	res.render('backend/view_category',{
+		categories : categories
+	});
+};
+
+module.exports.delete_category = (req,res) => {
+	let id = req.params.id;
+	console.log(id);
+	Category.findOneAndRemove({_id : id}).then(()=>{
+		console.log("deleted")
+	})
+	res.redirect('back');
+};

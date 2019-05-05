@@ -1,0 +1,28 @@
+extends ../layouts/design
+block content
+ #content
+  #content-header
+    #breadcrumb
+      a.tip-bottom(href="{{ url('admin/dashboard') }}", title='Go to Home')
+        i.icon-home
+        |  Home
+      a(href='') Category
+      a.current(href='#') Add Category
+  h1 Form validation
+  .container-fluid
+   hr
+   .row-fluid
+     .span12
+       .widget-box
+         .widget-title
+           span.icon
+             i.icon-info-sign
+           h5 Add Category
+         .widget-content.nopadding
+           form#basic_validate.form-horizontal(method='post', action='/admin/add-category', name='basic_validate', novalidate='novalidate')
+             .control-group
+               label.control-label Category
+               .controls
+                 input#name(type='text', required='', name='name')
+             .form-actions
+              input.btn.btn-success(type='submit', value='Validate')   
