@@ -74,3 +74,39 @@ module.exports.delete_category = (req,res) => {
 	})
 	res.redirect('back');
 };
+
+module.exports.viewAddPostForm = async (req,res) => {
+	let categories = await Category.find()
+	res.render('backend/add-post',{
+		categories : categories
+	});
+};
+
+module.exports.add_post = (req,res) => {
+	let path = 'images/' + req.file.originalname;
+	let id = req.body.category_id;
+	req.body.avatar = path;
+	Category.findOne({_id : id}).then((record)=>{
+		req.body.category_name = record.name;
+		req.body.category_id = record._id;
+		record.posts.push(req.body);
+		record.save().then(()=>{
+			res.redirect('back');
+		}).catch((err)=>{
+			res.send(err.message);
+		});
+	});
+
+};
+
+module.exports.view_post = (req,res) => {
+	Category.find().then((data)=>{
+	let posts = data.reduce((x,item)=>{
+	 	return x.concat(item.posts);	
+		},[]);
+	res.render('backend/view-users',{
+			posts : posts
+		});
+	});
+};
+

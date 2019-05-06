@@ -15,13 +15,13 @@ router.get('/view-category',controllers.view_category);
 
 router.get('/delete-category/:id',controllers.delete_category);
 
+router.get('/add-post',controllers.viewAddPostForm);
 
+router.post('/add-post',controllers.add_post);
 
+router.get('/view-post',controllers.view_post);
 
-
-
-
-
+router.get('/delete-post/:p_id')
 
 
 module.exports = router;

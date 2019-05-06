@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const postSchema = new mongoose.Schema({
 	title : String,
-	image : String,
+	avatar : String,
 	author : String,
-	category : String
+	category_name : String,
+	category_id : String,
+	content : String
 });
 
 const categorySchema = new mongoose.Schema({

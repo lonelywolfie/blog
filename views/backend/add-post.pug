@@ -1,0 +1,49 @@
+extends ../layouts/design
+block content
+ #content
+  #content-header
+    #breadcrumb
+      a.tip-bottom(href='', title='Go to Home')
+        i.icon-home
+        |  Home
+      a(href='') Product
+      a.current(href='#') Add Post
+    h1 Form validation
+  .container-fluid
+    hr
+    .row-fluid
+      .span12
+        .widget-box
+          .widget-title
+            span.icon
+              i.icon-info-sign
+            h5 Add Post
+          .widget-content.nopadding
+            form#basic_validate.form-horizontal(enctype='multipart/form-data', method='post', action='', name='basic_validate', novalidate='novalidate')
+              .control-group
+                label.control-label Category
+                .controls
+                  select(name='category_id', style='width: 220px')
+                   option(value = "0") Select category
+                   each category in categories
+                    option(value= category._id)= category.name
+              .control-group
+                label.control-label Title
+                .controls
+                  input#name(type='text', required='', name='title')
+              .control-group
+                label.control-label Author
+                .controls
+                  input#product_code(type='text', required='', name='author')
+              .control-group
+                label.control-label Content
+                .controls
+                  textarea#description(type='text', required='', name='content')
+                  script(type='text/javascript').
+                    CKEDITOR.replace("description");
+              .control-group
+                label.control-label Image
+                .controls
+                  input#product_image(type='file', name='avatar')
+              .form-actions
+                input.btn.btn-success(type='submit', value='Validate')

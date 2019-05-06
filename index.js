@@ -51,7 +51,7 @@ app.use(cookieParser("defefecec"));
 
 app.use('/',loginRoute)
 
-app.use('/admin',authMiddleware,adminRoutes);
+app.use('/admin',authMiddleware,upload.single('avatar'),adminRoutes);
 
 
 
