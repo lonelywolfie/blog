@@ -110,3 +110,16 @@ module.exports.view_post = (req,res) => {
 	});
 };
 
+module.exports.deletePost = (req,res) => {
+    let post_id = req.params.p_id;
+    let category_id = req.params.c_id;
+    Category.findById(category_id).then((result)=>{
+        let indexOfPost = result.posts.findIndex((element)=>{
+            return element._id == post_id;
+        });
+        result.posts.splice(indexOfPost,1);
+        result.save();
+        res.redirect('back');
+    });
+};
+

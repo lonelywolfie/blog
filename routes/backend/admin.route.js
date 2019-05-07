@@ -21,7 +21,7 @@ router.post('/add-post',controllers.add_post);
 
 router.get('/view-post',controllers.view_post);
 
-router.get('/delete-post/:p_id')
+router.get('/delete-post/:p_id/:c_id',controllers.deletePost);
 
 
 module.exports = router;
